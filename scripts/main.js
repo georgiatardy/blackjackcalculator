@@ -10,10 +10,42 @@
 */
 
 
-function assert(hand) {
+// function handvalue(hand) {
 
+  function handvalue(hand) {
+  let sum = 0;
 
+  for (let i = 0; i < hand.length; i++) {
+
+    if (hand[i] === "A") {
+      sum += 1;
+
+    } else if (hand[i] === "J" || hand[i] === "Q" || hand[i] === "K") {
+      sum += 10;
+
+    } else {
+      sum += parseInt(hand[i]);
+    }
+  }
+
+  if (hand.includes("A") && sum <= 11) {
+    sum += 10;
+  }
+  return sum;
 }
+
+
+console.log(handvalue(["A"]));
+console.log(handvalue(["A", "A"]));
+console.log(handvalue(["10", "A"]));
+console.log(handvalue(["11", "A"]));
+console.log(handvalue(["A", "11"]));
+console.log(handvalue(["A", "10"]));
+
+
+
+
+
 
 
 
